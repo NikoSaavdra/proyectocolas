@@ -1,21 +1,24 @@
 package es.santander.ascender;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Cola {
-    private List<String> valores = new ArrayList<>();
+
+    private Nodo raiz;
 
     public void add(String mensaje) {
-        valores.add(mensaje);
+        if (raiz == null) {
+            this.raiz = new Nodo(mensaje);
+        } else {
+            this.raiz.pedirLaVez(mensaje);
+        }
     }
 
     public String get() {
-        if (valores.size() == 0) {
+        if (raiz == null) {
             return null;
+        } else {
+            String valor = raiz.getValor();
+            raiz = raiz.getSiguiente();
+            return valor;
         }
-        String res = valores.get(0);
-        valores.remove(0);
-        return res;
     }
 }
