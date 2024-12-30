@@ -1,4 +1,4 @@
-package es.santander.ascender;
+package es.santander.ascender.FIFO;
 
 public class Nodo {
     private String valor;
